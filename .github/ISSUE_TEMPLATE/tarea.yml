@@ -1,7 +1,5 @@
 name: "Tarea"
 description: "Tarea general del proyecto (documentación, revisión, experimento, etc.)"
-title: ""
-labels: []
 body:
   - type: textarea
     id: entregable
