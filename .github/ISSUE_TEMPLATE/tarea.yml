@@ -1,0 +1,26 @@
+name: "Tarea"
+description: "Tarea general del proyecto (documentación, revisión, experimento, etc.)"
+title: ""
+labels: []
+body:
+  - type: textarea
+    id: entregable
+    attributes:
+      label: Entregable
+      description: ¿Qué hay que producir?
+    validations:
+      required: true
+  - type: textarea
+    id: debe_incluir
+    attributes:
+      label: Debe incluir
+      description: Puntos o checklist que tiene que cubrir el entregable
+    validations:
+      required: true
+  - type: textarea
+    id: contexto
+    attributes:
+      label: Contexto / referencias
+      description: Links, notas adicionales (opcional)
+    validations:
+      required: false
