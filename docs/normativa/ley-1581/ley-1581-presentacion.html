@@ -1,0 +1,1584 @@
+<title>Ley 1581 de 2012 — Protección de datos e Inteligencia Artificial</title>
+
+<style>
+  :root {
+    --paper:      #EDEFF0;
+    --surface:    #F8FAFA;
+    --surface-2:  #E4E8E9;
+    --ink:        #101619;
+    --ink-soft:   #4C5A60;
+    --ink-faint:  #7C8A90;
+    --rule:       #D0D8DA;
+    --rule-soft:  #DDE3E4;
+    --accent:     #0E5C63;
+    --accent-2:   #12787F;
+    --accent-wash:#DDE9EA;
+    --alert:      #A03A2B;
+    --alert-wash: #F1DFDC;
+    --ok:         #2F6B4F;
+
+    --serif: "Charter", "Bitstream Charter", "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+    --mono: ui-monospace, "SF Mono", "JetBrains Mono", "IBM Plex Mono", "Cascadia Mono", Menlo, Consolas, monospace;
+
+    --measure: 66ch;
+    --rail: 9.5rem;
+    --gap: 2.25rem;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper:      #0D1215;
+      --surface:    #141B1F;
+      --surface-2:  #1A2328;
+      --ink:        #E2E8E9;
+      --ink-soft:   #9BAAAF;
+      --ink-faint:  #6B7B81;
+      --rule:       #263238;
+      --rule-soft:  #1E282D;
+      --accent:     #58B8BD;
+      --accent-2:   #7FD0D4;
+      --accent-wash:#12292C;
+      --alert:      #E08975;
+      --alert-wash: #2C1B17;
+      --ok:         #6FB48F;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --paper:      #0D1215;
+    --surface:    #141B1F;
+    --surface-2:  #1A2328;
+    --ink:        #E2E8E9;
+    --ink-soft:   #9BAAAF;
+    --ink-faint:  #6B7B81;
+    --rule:       #263238;
+    --rule-soft:  #1E282D;
+    --accent:     #58B8BD;
+    --accent-2:   #7FD0D4;
+    --accent-wash:#12292C;
+    --alert:      #E08975;
+    --alert-wash: #2C1B17;
+    --ok:         #6FB48F;
+  }
+
+  :root[data-theme="light"] {
+    --paper:      #EDEFF0;
+    --surface:    #F8FAFA;
+    --surface-2:  #E4E8E9;
+    --ink:        #101619;
+    --ink-soft:   #4C5A60;
+    --ink-faint:  #7C8A90;
+    --rule:       #D0D8DA;
+    --rule-soft:  #DDE3E4;
+    --accent:     #0E5C63;
+    --accent-2:   #12787F;
+    --accent-wash:#DDE9EA;
+    --alert:      #A03A2B;
+    --alert-wash: #F1DFDC;
+    --ok:         #2F6B4F;
+  }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--serif);
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  .wrap {
+    max-width: 68rem;
+    margin: 0 auto;
+    padding: 0 1.5rem 6rem;
+  }
+
+  /* ---------- apparatus type ---------- */
+  .mono, .marg, .tag, .code, .meter, .fields dt, .toc a, .kbd {
+    font-family: var(--mono);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+
+  /* ---------- masthead ---------- */
+  .masthead {
+    border-bottom: 2px solid var(--ink);
+    padding: 3.5rem 0 1.75rem;
+    margin-bottom: 3rem;
+  }
+
+  .masthead-top {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: space-between;
+    align-items: baseline;
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 0.75rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .habeas {
+    font-family: var(--serif);
+    font-size: clamp(3.5rem, 13vw, 9rem);
+    line-height: 0.86;
+    letter-spacing: -0.035em;
+    font-weight: 400;
+    color: var(--rule);
+    margin-bottom: 0.5rem;
+    text-wrap: balance;
+  }
+
+  .habeas-gloss {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
+    color: var(--ink-faint);
+    max-width: 34rem;
+    margin-bottom: 2.75rem;
+    line-height: 1.7;
+  }
+
+  h1 {
+    font-size: clamp(1.9rem, 4.2vw, 3rem);
+    line-height: 1.08;
+    letter-spacing: -0.022em;
+    font-weight: 600;
+    text-wrap: balance;
+    max-width: 22ch;
+    margin-bottom: 1.25rem;
+  }
+
+  h1 em {
+    font-style: normal;
+    color: var(--accent);
+  }
+
+  .standfirst {
+    font-size: 1.1875rem;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    max-width: 52ch;
+    margin-bottom: 2.5rem;
+  }
+
+  /* ---------- ficha (identity fields) ---------- */
+  .fields {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    gap: 0;
+    border-top: 1px solid var(--rule);
+  }
+
+  .field {
+    border-bottom: 1px solid var(--rule-soft);
+    border-right: 1px solid var(--rule-soft);
+    padding: 0.85rem 1rem 0.85rem 0;
+  }
+
+  .field dt {
+    font-family: var(--mono);
+    font-size: 0.625rem;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 0.3rem;
+  }
+
+  .field dd {
+    font-size: 0.9375rem;
+    line-height: 1.45;
+    color: var(--ink);
+  }
+
+  /* ---------- toc ---------- */
+  .toc {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: color-mix(in srgb, var(--paper) 92%, transparent);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--rule);
+    margin: 0 -1.5rem 3.5rem;
+    padding: 0 1.5rem;
+  }
+
+  .toc-inner {
+    display: flex;
+    gap: 0.25rem;
+    overflow-x: auto;
+    scrollbar-width: thin;
+    max-width: 68rem;
+    margin: 0 auto;
+  }
+
+  .toc a {
+    flex: none;
+    font-size: 0.6875rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    text-decoration: none;
+    padding: 0.85rem 0.7rem;
+    border-bottom: 2px solid transparent;
+    white-space: nowrap;
+    transition: color 0.15s, border-color 0.15s;
+  }
+
+  .toc a:hover { color: var(--ink); }
+  .toc a.on { color: var(--accent); border-bottom-color: var(--accent); }
+
+  /* ---------- section / marginalia rail ---------- */
+  section { margin-bottom: 5rem; scroll-margin-top: 4rem; }
+
+  .block {
+    display: grid;
+    grid-template-columns: var(--rail) minmax(0, 1fr);
+    gap: var(--gap);
+    margin-bottom: 2.5rem;
+  }
+
+  .block > .body { max-width: var(--measure); min-width: 0; }
+  .block > .body.wide { max-width: none; }
+
+  .marg {
+    font-size: 0.6875rem;
+    line-height: 1.55;
+    color: var(--ink-faint);
+    letter-spacing: 0.03em;
+    padding-top: 0.35rem;
+    text-align: right;
+    border-right: 1px solid var(--rule-soft);
+    padding-right: var(--gap);
+    margin-right: calc(var(--gap) * -1);
+  }
+
+  .marg b {
+    display: block;
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  .marg span { display: block; margin-top: 0.4rem; }
+
+  h2 {
+    font-size: clamp(1.5rem, 3vw, 2.1rem);
+    line-height: 1.15;
+    letter-spacing: -0.018em;
+    font-weight: 600;
+    text-wrap: balance;
+    margin-bottom: 0.6rem;
+  }
+
+  .sec-head {
+    display: grid;
+    grid-template-columns: var(--rail) minmax(0, 1fr);
+    gap: var(--gap);
+    align-items: end;
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: 0.9rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .sec-num {
+    font-family: var(--mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.13em;
+    color: var(--ink-faint);
+    text-align: right;
+    padding-right: var(--gap);
+    margin-right: calc(var(--gap) * -1);
+  }
+
+  h3 {
+    font-size: 1.1875rem;
+    font-weight: 600;
+    letter-spacing: -0.008em;
+    margin-bottom: 0.5rem;
+    text-wrap: balance;
+  }
+
+  p { margin-bottom: 1rem; }
+  p:last-child, ul:last-child, ol:last-child { margin-bottom: 0; }
+
+  strong { font-weight: 600; }
+  em { font-style: italic; }
+
+  a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+
+  ul, ol { margin: 0 0 1rem 1.15rem; }
+  li { margin-bottom: 0.4rem; padding-left: 0.25rem; }
+
+  /* ---------- pull quote ---------- */
+  blockquote {
+    border-left: 2px solid var(--accent);
+    padding: 0.15rem 0 0.15rem 1.25rem;
+    margin: 1.5rem 0;
+    color: var(--ink-soft);
+    font-size: 1.0625rem;
+  }
+
+  blockquote cite {
+    display: block;
+    font-family: var(--mono);
+    font-style: normal;
+    font-size: 0.6875rem;
+    letter-spacing: 0.06em;
+    color: var(--ink-faint);
+    margin-top: 0.7rem;
+  }
+
+  .thesis {
+    border: none;
+    border-top: 2px solid var(--ink);
+    border-bottom: 2px solid var(--ink);
+    padding: 1.5rem 0;
+    font-size: clamp(1.25rem, 2.4vw, 1.625rem);
+    line-height: 1.35;
+    letter-spacing: -0.012em;
+    color: var(--ink);
+    text-wrap: balance;
+  }
+
+  /* ---------- tables ---------- */
+  .scroll { overflow-x: auto; margin-bottom: 1.5rem; }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9375rem;
+    min-width: 34rem;
+  }
+
+  th {
+    font-family: var(--mono);
+    font-size: 0.625rem;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    text-align: left;
+    font-weight: 500;
+    padding: 0 0.9rem 0.6rem 0;
+    border-bottom: 1px solid var(--ink);
+    vertical-align: bottom;
+  }
+
+  td {
+    padding: 0.7rem 0.9rem 0.7rem 0;
+    border-bottom: 1px solid var(--rule-soft);
+    vertical-align: top;
+    line-height: 1.5;
+  }
+
+  tr:last-child td { border-bottom: none; }
+  td:last-child, th:last-child { padding-right: 0; }
+
+  .t-name { font-weight: 600; white-space: nowrap; }
+
+  /* ---------- principles ---------- */
+  .principles { display: grid; gap: 0; border-top: 1px solid var(--ink); }
+
+  .principle {
+    display: grid;
+    grid-template-columns: 2.25rem minmax(0, 1fr);
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--rule-soft);
+    align-items: start;
+  }
+
+  .principle-lit {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    color: var(--accent);
+    padding-top: 0.15rem;
+  }
+
+  .principle-name {
+    font-weight: 600;
+    display: block;
+    margin-bottom: 0.15rem;
+  }
+
+  .principle-text { color: var(--ink-soft); font-size: 0.9375rem; line-height: 1.55; }
+
+  /* ---------- instruction list (roman, from the circular) ---------- */
+  .instr { display: grid; gap: 0; border-top: 1px solid var(--ink); }
+
+  .instr-item {
+    display: grid;
+    grid-template-columns: 3rem minmax(0, 1fr);
+    gap: 1.25rem;
+    padding: 1.15rem 0;
+    border-bottom: 1px solid var(--rule-soft);
+  }
+
+  .instr-num {
+    font-family: var(--mono);
+    font-size: 0.8125rem;
+    color: var(--accent);
+    letter-spacing: 0.04em;
+    padding-top: 0.1rem;
+  }
+
+  .instr-item h4 { font-size: 1rem; font-weight: 600; margin-bottom: 0.25rem; }
+  .instr-item p { font-size: 0.9375rem; color: var(--ink-soft); line-height: 1.55; margin-bottom: 0; }
+
+  /* ---------- coverage meter ---------- */
+  .meter { display: inline-flex; gap: 3px; vertical-align: middle; }
+
+  .meter i {
+    width: 0.6rem;
+    height: 0.85rem;
+    background: var(--accent);
+    display: block;
+    border-radius: 1px;
+  }
+
+  .meter i.off { background: var(--rule); }
+  .gap-row .meter i { background: var(--alert); }
+  .gap-row .meter i.off { background: var(--rule); }
+  .gap-row td { background: var(--alert-wash); }
+  .gap-row .t-name { color: var(--alert); }
+
+  /* ---------- the gap callout ---------- */
+  .gap-note {
+    border: 1px solid var(--alert);
+    border-left-width: 3px;
+    background: var(--alert-wash);
+    padding: 1.35rem 1.5rem;
+    margin: 1.75rem 0;
+  }
+
+  .gap-note .eyebrow { color: var(--alert); margin-bottom: 0.5rem; }
+  .gap-note p:last-child { margin-bottom: 0; }
+
+  /* ---------- ponderación tool ---------- */
+  .tool {
+    border: 1px solid var(--rule);
+    background: var(--surface);
+    padding: 1.5rem;
+    margin: 1.75rem 0;
+  }
+
+  .tool > .eyebrow { display: block; margin-bottom: 0.35rem; }
+  .tool h4 { font-size: 1.0625rem; font-weight: 600; margin-bottom: 0.3rem; }
+  .tool > p { font-size: 0.9375rem; color: var(--ink-soft); margin-bottom: 1.25rem; }
+
+  .criteria { display: grid; gap: 0; margin-bottom: 1.25rem; border-top: 1px solid var(--rule-soft); }
+
+  .criterion {
+    display: flex;
+    gap: 0.85rem;
+    align-items: flex-start;
+    padding: 0.8rem 0;
+    border-bottom: 1px solid var(--rule-soft);
+    cursor: pointer;
+  }
+
+  .criterion input { margin-top: 0.3rem; accent-color: var(--accent); width: 1rem; height: 1rem; flex: none; }
+  .criterion .c-name { font-weight: 600; font-size: 0.9375rem; display: block; }
+  .criterion .c-q { font-size: 0.875rem; color: var(--ink-soft); line-height: 1.5; }
+
+  .verdict {
+    font-family: var(--mono);
+    font-size: 0.8125rem;
+    letter-spacing: 0.03em;
+    padding: 0.9rem 1rem;
+    border: 1px solid var(--alert);
+    color: var(--alert);
+    background: var(--alert-wash);
+    line-height: 1.5;
+  }
+
+  .verdict.pass { border-color: var(--ok); color: var(--ok); background: var(--accent-wash); }
+
+  /* ---------- case cards ---------- */
+  .cases { display: grid; grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr)); gap: 1px; background: var(--rule); border: 1px solid var(--rule); }
+
+  .case { background: var(--surface); padding: 1.35rem 1.4rem; display: flex; flex-direction: column; gap: 0.6rem; }
+
+  .case .tag {
+    font-size: 0.625rem;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  .case h4 { font-size: 1.0625rem; font-weight: 600; line-height: 1.25; margin: 0; text-wrap: balance; }
+  .case .scen { font-size: 0.9375rem; color: var(--ink-soft); line-height: 1.55; margin: 0; }
+  .case ul { margin: 0 0 0 1.05rem; font-size: 0.875rem; line-height: 1.5; }
+  .case li { margin-bottom: 0.35rem; color: var(--ink-soft); }
+  .case li strong { color: var(--ink); }
+
+  .verdict-line {
+    font-family: var(--mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.04em;
+    line-height: 1.55;
+    padding-top: 0.7rem;
+    border-top: 1px solid var(--rule-soft);
+    color: var(--alert);
+    margin-top: auto;
+  }
+
+  /* ---------- checklist ---------- */
+  .checklist { border-top: 1px solid var(--ink); }
+
+  .check {
+    display: flex;
+    gap: 0.85rem;
+    align-items: flex-start;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--rule-soft);
+    cursor: pointer;
+    font-size: 0.9375rem;
+    line-height: 1.5;
+    transition: opacity 0.15s;
+  }
+
+  .check input { margin-top: 0.28rem; accent-color: var(--accent); width: 1rem; height: 1rem; flex: none; }
+  .check input:checked ~ span { opacity: 0.45; text-decoration: line-through; text-decoration-color: var(--ink-faint); }
+
+  .progress {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
+    padding: 0.9rem 0;
+    border-bottom: 2px solid var(--ink);
+    margin-bottom: 0;
+  }
+
+  .progress-count { color: var(--accent); font-size: 0.9375rem; }
+
+  .bar { height: 3px; background: var(--rule); margin-bottom: 1.5rem; }
+  .bar i { display: block; height: 100%; width: 0; background: var(--accent); transition: width 0.25s ease; }
+
+  button.reset {
+    font-family: var(--mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    background: none;
+    border: 1px solid var(--rule);
+    color: var(--ink-soft);
+    padding: 0.45rem 0.8rem;
+    cursor: pointer;
+    transition: border-color 0.15s, color 0.15s;
+  }
+
+  button.reset:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* ---------- references ---------- */
+  .refs { border-top: 1px solid var(--ink); }
+
+  .ref {
+    display: grid;
+    grid-template-columns: 2.5rem minmax(0, 1fr);
+    gap: 1rem;
+    padding: 0.85rem 0;
+    border-bottom: 1px solid var(--rule-soft);
+    font-size: 0.9375rem;
+    line-height: 1.5;
+  }
+
+  .ref-n { font-family: var(--mono); font-size: 0.75rem; color: var(--ink-faint); padding-top: 0.15rem; }
+  .ref a { word-break: break-word; font-family: var(--mono); font-size: 0.75rem; display: inline-block; margin-top: 0.2rem; }
+
+  .method {
+    background: var(--surface-2);
+    padding: 1.5rem;
+    font-size: 0.875rem;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    margin-top: 2.5rem;
+  }
+
+  .method .eyebrow { display: block; margin-bottom: 0.6rem; }
+
+  footer {
+    border-top: 1px solid var(--rule);
+    margin-top: 4rem;
+    padding-top: 1.5rem;
+    font-family: var(--mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.06em;
+    color: var(--ink-faint);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 2rem;
+    justify-content: space-between;
+  }
+
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  @media (max-width: 800px) {
+    :root { --gap: 1.25rem; }
+
+    .block, .sec-head { grid-template-columns: minmax(0, 1fr); }
+
+    .marg, .sec-num {
+      text-align: left;
+      border-right: none;
+      border-left: 2px solid var(--rule);
+      padding-right: 0;
+      padding-left: 0.75rem;
+      margin-right: 0;
+      padding-top: 0;
+      margin-bottom: 0.25rem;
+    }
+
+    .marg b { display: inline; }
+    .marg span { display: inline; margin-top: 0; }
+    .marg span::before { content: " · "; }
+    .field { border-right: none; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
+  }
+</style>
+
+<div class="wrap">
+
+  <header class="masthead">
+    <div class="masthead-top">
+      <span class="eyebrow">República de Colombia · Ley Estatutaria</span>
+      <span class="eyebrow">Gobernanza de IA · Investigación</span>
+    </div>
+
+    <p class="habeas">Habeas&nbsp;Data</p>
+    <p class="habeas-gloss">
+      «Que tengas tus datos». Primo del habeas corpus: así como nadie puede detenerte
+      arbitrariamente, nadie puede tener y usar información sobre ti arbitrariamente.
+    </p>
+
+    <h1>La ley que ya regula la <em>inteligencia artificial</em> en Colombia sin nombrarla nunca</h1>
+
+    <p class="standfirst">
+      La Ley 1581 de 2012 no menciona las palabras «algoritmo», «modelo» ni «inteligencia
+      artificial». Y aun así es, hoy, el instrumento vinculante más exigente que enfrenta
+      cualquiera que construya IA en el país.
+    </p>
+
+    <dl class="fields">
+      <div class="field"><dt>Norma</dt><dd>Ley Estatutaria 1581 del 17 de octubre de 2012</dd></div>
+      <div class="field"><dt>Título oficial</dt><dd>«Por la cual se dictan disposiciones generales para la protección de datos personales»</dd></div>
+      <div class="field"><dt>Derecho que desarrolla</dt><dd>Habeas Data — art. 15, Constitución Política de 1991</dd></div>
+      <div class="field"><dt>Autoridad de control</dt><dd>Superintendencia de Industria y Comercio — Delegatura para la Protección de Datos Personales</dd></div>
+      <div class="field"><dt>Reglamentación</dt><dd>Decreto 1377 de 2013, compilado en el Decreto 1074 de 2015</dd></div>
+      <div class="field"><dt>Instrumento clave para IA</dt><dd>Circular Externa 002 del 21 de agosto de 2024</dd></div>
+    </dl>
+  </header>
+
+  <nav class="toc" aria-label="Secciones">
+    <div class="toc-inner">
+      <a href="#que-es">De qué trata</a>
+      <a href="#ia">Por qué importa para la IA</a>
+      <a href="#dimension">Dimensión que toca</a>
+      <a href="#casos">Ejemplos</a>
+      <a href="#checklist">Verificación</a>
+      <a href="#marco">Marco normativo</a>
+      <a href="#cierre">Conclusión</a>
+      <a href="#refs">Referencias</a>
+    </div>
+  </nav>
+
+  <!-- ===================== 1 ===================== -->
+  <section id="que-es">
+    <div class="sec-head">
+      <div class="sec-num">Sección 01</div>
+      <h2>De qué trata la ley</h2>
+    </div>
+
+    <div class="block">
+      <div class="marg"><b>Art. 15 C.P.</b><span>Constitución de 1991</span></div>
+      <div class="body">
+        <p>
+          Imagina que tus datos personales —tu cédula, tu correo, tu historial médico, tus huellas,
+          tus fotos, tu ubicación— son <strong>objetos que te pertenecen</strong>, aunque estén
+          guardados en el computador de otra persona.
+        </p>
+        <p>
+          La Ley 1581 parte exactamente de esa idea. Su punto de partida no es «¿quién tiene el
+          archivo?», sino <strong>«¿de quién son los datos?»</strong>. La respuesta es: son tuyos.
+          Tú eres el <strong>Titular</strong>. Quien los guarda y los usa es apenas un
+          <strong>custodio</strong> con obligaciones, no un dueño.
+        </p>
+        <p>
+          La ley desarrolla el artículo 15 de la Constitución, que reconoce a toda persona el derecho
+          a <strong>conocer, actualizar y rectificar</strong> las informaciones recogidas sobre ella
+          en bases de datos y archivos.
+        </p>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="marg"><b>Art. 3</b><span>Definiciones</span></div>
+      <div class="body wide">
+        <h3>Los tres personajes</h3>
+        <p>Para entender cualquier caso, basta identificar quién es quién.</p>
+        <div class="scroll">
+          <table>
+            <thead>
+              <tr><th>Personaje</th><th>Quién es</th><th>Ejemplo cotidiano</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="t-name">Titular</td>
+                <td>La persona natural dueña de los datos</td>
+                <td>Tú, cuando te registras en una app</td>
+              </tr>
+              <tr>
+                <td class="t-name">Responsable</td>
+                <td>Quien decide <strong>por qué y para qué</strong> se usan los datos</td>
+                <td>La empresa dueña de la app</td>
+              </tr>
+              <tr>
+                <td class="t-name">Encargado</td>
+                <td>Quien procesa los datos <strong>por cuenta del Responsable</strong></td>
+                <td>El proveedor de nube o de analítica contratado</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>
+          Y la actividad regulada se llama <strong>Tratamiento</strong>: cualquier operación sobre
+          datos personales —recolección, almacenamiento, uso, circulación o supresión—. Es una
+          definición deliberadamente amplia: <strong>casi todo lo que se puede hacer con un dato
+          personal es «Tratamiento»</strong>.
+        </p>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="marg"><b>Art. 4</b><span>Ocho principios</span></div>
+      <div class="body">
+        <h3>El corazón de la ley</h3>
+        <p>Si un proyecto viola uno solo de estos principios, ya es ilegal.</p>
+        <div class="principles">
+          <div class="principle">
+            <div class="principle-lit">a)</div>
+            <div>
+              <span class="principle-name">Legalidad</span>
+              <span class="principle-text">El tratamiento es una actividad reglada: se hace conforme a la ley, no según le parezca a cada quien.</span>
+            </div>
+          </div>
+          <div class="principle">
+            <div class="principle-lit">b)</div>
+            <div>
+              <span class="principle-name">Finalidad</span>
+              <span class="principle-text">Los datos se recogen para un propósito legítimo, específico e informado al Titular. No vale «por si acaso».</span>
+            </div>
+          </div>
+          <div class="principle">
+            <div class="principle-lit">c)</div>
+            <div>
+              <span class="principle-name">Libertad</span>
+              <span class="principle-text">Solo se tratan datos con consentimiento previo, expreso e informado del Titular, salvo las excepciones legales.</span>
+            </div>
+          </div>
+          <div class="principle">
+            <div class="principle-lit">d)</div>
+            <div>
+              <span class="principle-name">Veracidad o calidad</span>
+              <span class="principle-text">Información veraz, completa, exacta, actualizada, comprobable y comprensible. Se prohíben los datos parciales, incompletos, fraccionados o que induzcan a error.</span>
+            </div>
+          </div>
+          <div class="principle">
+            <div class="principle-lit">e)</div>
+            <div>
+              <span class="principle-name">Transparencia</span>
+              <span class="principle-text">El Titular puede, en cualquier momento y sin restricciones, obtener información sobre sus propios datos.</span>
+            </div>
+          </div>
+          <div class="principle">
+            <div class="principle-lit">f)</div>
+            <div>
+              <span class="principle-name">Acceso y circulación restringida</span>
+              <span class="principle-text">Los datos no están disponibles en internet ni en medios de divulgación masiva, salvo que el acceso sea técnicamente controlable.</span>
+            </div>
+          </div>
+          <div class="principle">
+            <div class="principle-lit">g)</div>
+            <div>
+              <span class="principle-name">Seguridad</span>
+              <span class="principle-text">Medidas técnicas, humanas y administrativas contra adulteración, pérdida, consulta, uso o acceso no autorizado.</span>
+            </div>
+          </div>
+          <div class="principle">
+            <div class="principle-lit">h)</div>
+            <div>
+              <span class="principle-name">Confidencialidad</span>
+              <span class="principle-text">Todos los que intervienen guardan reserva, incluso después de terminada su relación con el tratamiento.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="marg"><b>Arts. 5–7</b><span>Datos sensibles</span></div>
+      <div class="body">
+        <h3>La categoría de máximo riesgo</h3>
+        <p>
+          La ley define como <strong>sensibles</strong> los datos que afectan la intimidad del Titular
+          <strong>o cuyo uso indebido puede generar discriminación</strong>: origen racial o étnico,
+          orientación política, convicciones religiosas o filosóficas, pertenencia a sindicatos u
+          organizaciones sociales y de derechos humanos, y datos de <strong>salud, vida sexual y
+          biométricos</strong>.
+        </p>
+        <p>
+          La regla general es la <strong>prohibición</strong> de tratarlos. Solo se permite en casos
+          tasados: autorización explícita, interés vital del Titular, o finalidad histórica,
+          estadística o científica con medidas de anonimización.
+        </p>
+        <blockquote>
+          Fíjate en el criterio de selección: la ley protege estas categorías <em>precisamente porque
+          son las que producen discriminación</em> — el mismo problema que la literatura de IA llama
+          <em>fairness</em>. El puente entre privacidad y equidad ya estaba construido en 2012.
+        </blockquote>
+        <p>El artículo 7 añade protección reforzada para los datos de niños, niñas y adolescentes.</p>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="marg"><b>Art. 8</b><span>Derechos</span><span>Art. 23 · Sanciones</span></div>
+      <div class="body wide">
+        <h3>Qué puedes exigir, y qué pasa si no cumplen</h3>
+        <div class="scroll">
+          <table>
+            <thead>
+              <tr><th>Tus derechos como Titular</th><th>Lo que puede imponer la SIC</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Conocer, actualizar y rectificar tus datos</td>
+                <td><strong>Multas de hasta 2.000 SMLMV</strong> por infracción</td>
+              </tr>
+              <tr>
+                <td>Solicitar prueba de la autorización que otorgaste</td>
+                <td>Suspensión de actividades hasta por 6 meses</td>
+              </tr>
+              <tr>
+                <td>Ser informado sobre el uso dado a tus datos</td>
+                <td>Cierre temporal de las operaciones</td>
+              </tr>
+              <tr>
+                <td>Presentar quejas ante la SIC</td>
+                <td><strong>Cierre inmediato y definitivo</strong> de la operación que involucre datos sensibles</td>
+              </tr>
+              <tr>
+                <td>Revocar la autorización y solicitar la supresión</td>
+                <td rowspan="2" style="color:var(--ink-soft)">El valor en pesos cambia cada año con el SMLMV; conviene verificar el salario mínimo vigente.</td>
+              </tr>
+              <tr>
+                <td>Acceder gratuitamente a tus datos</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 2 ===================== -->
+  <section id="ia">
+    <div class="sec-head">
+      <div class="sec-num">Sección 02</div>
+      <h2>Por qué importa para la inteligencia artificial</h2>
+    </div>
+
+    <div class="block">
+      <div class="marg"><b>Tesis</b></div>
+      <div class="body">
+        <blockquote class="thesis">
+          Colombia no necesitó esperar una «ley de IA» para tener reglas vinculantes sobre IA.
+          La Ley 1581 ya aplica, porque casi toda IA relevante funciona con datos personales.
+        </blockquote>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="marg"><b>T-323/2024</b><span>Corte Constitucional</span></div>
+      <div class="body">
+        <h3>Neutralidad tecnológica</h3>
+        <p>
+          Que la ley nunca diga «algoritmo» es una <strong>fortaleza de diseño</strong>, no un vacío:
+          fue redactada de forma neutra, de modo que aplica a cualquier tratamiento de datos
+          personales sin importar el medio, manual o tecnológico. La Corte Constitucional lo confirmó
+          expresamente en la Sentencia T-323 de 2024, sobre el uso de IA generativa en una decisión
+          judicial:
+        </p>
+        <blockquote>
+          «[L]as leyes estatutarias 1266 de 2008 y 1581 de 2012 fueron redactadas neutralmente, en el
+          sentido que sus disposiciones aplican al Tratamiento de datos que se realice mediante
+          cualquier herramienta manual o tecnológica. En este sentido, cualquier sistema de IA debe
+          garantizar el cumplimiento de estas normatividades.»
+          <cite>Corte Constitucional · Sentencia T-323 de 2024</cite>
+        </blockquote>
+        <p>
+          Traducido: <strong>entrenar, probar, desplegar o monitorear un sistema de IA con datos
+          personales es «Tratamiento»</strong>, y queda sujeto a los ocho principios, a la
+          autorización del Titular y a la vigilancia de la SIC.
+        </p>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="marg"><b>Circular 002</b><span>SIC · 21 ago 2024</span><span>Instrucciones I–X</span></div>
+      <div class="body">
+        <h3>El puente explícito entre la ley y la IA</h3>
+        <p>
+          El 21 de agosto de 2024 la SIC expidió los <em>«Lineamientos sobre el Tratamiento de Datos
+          personales en Sistemas de Inteligencia Artificial»</em>. Es el documento más importante para
+          quien construye IA en Colombia, y es de obligatorio cumplimiento para los vigilados por la
+          Superintendencia. Sus diez instrucciones:
+        </p>
+
+        <div class="instr">
+          <div class="instr-item">
+            <div class="instr-num">I</div>
+            <div>
+              <h4>Test de ponderación en cuatro criterios</h4>
+              <p>Antes de tratar datos personales en IA hay que justificar idoneidad, necesidad, razonabilidad y proporcionalidad en sentido estricto.</p>
+            </div>
+          </div>
+          <div class="instr-item">
+            <div class="instr-num">II</div>
+            <div>
+              <h4>Principio de precaución</h4>
+              <p>Ante <strong>incertidumbre</strong> sobre daños graves e irreversibles, hay que abstenerse de tratar los datos o adoptar medidas precautorias. La carga de la duda juega contra el desarrollador, no a su favor.</p>
+            </div>
+          </div>
+          <div class="instr-item">
+            <div class="instr-num">III</div>
+            <div>
+              <h4>Gestión de riesgos</h4>
+              <p>Sistemas para identificar, medir, controlar y monitorear riesgos. La circular nombra expresamente «sesgos humanos, fallas técnicas, vulnerabilidades de seguridad, fallas en la implementación».</p>
+            </div>
+          </div>
+          <div class="instr-item">
+            <div class="instr-num">IV</div>
+            <div>
+              <h4>Estudio de impacto de privacidad, previo y documentado</h4>
+              <p>Obligatorio cuando el producto entrañe alto riesgo. Mínimo: descripción de las operaciones, evaluación de riesgos para derechos y libertades, y medidas para evitar su materialización.</p>
+            </div>
+          </div>
+          <div class="instr-item">
+            <div class="instr-num">V–VI</div>
+            <div>
+              <h4>Calidad de datos y privacidad desde el diseño</h4>
+              <p>Los datos deben ser veraces, completos, exactos, actualizados, comprobables y comprensibles. La SIC menciona explícitamente la <strong>privacidad diferencial</strong> como técnica válida, y cita a Dwork &amp; Roth.</p>
+            </div>
+          </div>
+          <div class="instr-item">
+            <div class="instr-num">VII</div>
+            <div>
+              <h4>Derecho de información</h4>
+              <p>El Titular puede obtener, en cualquier momento y sin restricciones, información sobre el tratamiento de sus datos dentro del sistema.</p>
+            </div>
+          </div>
+          <div class="instr-item">
+            <div class="instr-num">VIII</div>
+            <div>
+              <h4>Seguridad auditable</h4>
+              <p>Medidas tecnológicas, humanas, administrativas, físicas y contractuales. Y algo crucial: deben ser <strong>auditables por las autoridades</strong>.</p>
+            </div>
+          </div>
+          <div class="instr-item">
+            <div class="instr-num">IX</div>
+            <div>
+              <h4>«Público» no significa «libre»</h4>
+              <p>La información «accesible al público» no es, por sí sola, información «de naturaleza pública». Que un dato esté en internet no autoriza a tratarlo. Precedente: Resolución 71406 de 2023, con órdenes a LinkedIn.</p>
+            </div>
+          </div>
+          <div class="instr-item">
+            <div class="instr-num">X</div>
+            <div>
+              <h4>Estrategias demostrables</h4>
+              <p>Pertinentes, eficientes y demostrables para garantizar los derechos de los Titulares.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="marg"><b>Instrucción I</b><span>Los cuatro criterios</span></div>
+      <div class="body">
+        <div class="tool">
+          <span class="eyebrow">Herramienta · Circular 002 de 2024</span>
+          <h4>Test de ponderación</h4>
+          <p>Marca cada criterio que tu sistema de IA pueda justificar y documentar hoy.</p>
+
+          <div class="criteria">
+            <label class="criterion">
+              <input type="checkbox" data-crit>
+              <span>
+                <span class="c-name">Idoneidad</span>
+                <span class="c-q">¿El tratamiento es realmente capaz de alcanzar el objetivo propuesto?</span>
+              </span>
+            </label>
+            <label class="criterion">
+              <input type="checkbox" data-crit>
+              <span>
+                <span class="c-name">Necesidad</span>
+                <span class="c-q">¿No existe otra medida igual de eficaz pero menos invasiva? Si existe, debes usar esa.</span>
+              </span>
+            </label>
+            <label class="criterion">
+              <input type="checkbox" data-crit>
+              <span>
+                <span class="c-name">Razonabilidad</span>
+                <span class="c-q">¿La finalidad perseguida es constitucionalmente legítima?</span>
+              </span>
+            </label>
+            <label class="criterion">
+              <input type="checkbox" data-crit>
+              <span>
+                <span class="c-name">Proporcionalidad en sentido estricto</span>
+                <span class="c-q">¿Las ventajas obtenidas superan la afectación al derecho al Habeas Data?</span>
+              </span>
+            </label>
+          </div>
+
+          <p class="verdict" id="verdict" role="status">0 / 4 — La ponderación no se supera. Falta justificar los cuatro criterios.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="marg"><b>Decreto 1074</b><span>Art. 2.2.2.25.6.1</span></div>
+      <div class="body">
+        <h3>Responsabilidad demostrada</h3>
+        <p>
+          Los Responsables deben ser capaces de <strong>demostrar</strong>, a petición de la SIC, que
+          implementaron medidas apropiadas y efectivas de cumplimiento. Esto invierte la lógica
+          intuitiva: no basta con cumplir, hay que <strong>poder probar que se cumplió</strong>.
+        </p>
+        <p>
+          Para un equipo de IA significa que la documentación —<em>model cards</em>, <em>datasheets
+          for datasets</em>, registros de linaje de datos, actas de comité de ética, estudios de
+          impacto— deja de ser una buena práctica opcional y se convierte en
+          <strong>material probatorio</strong>.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 3 ===================== -->
+  <section id="dimension">
+    <div class="sec-head">
+      <div class="sec-num">Sección 03</div>
+      <h2>Qué dimensión de la IA responsable toca</h2>
+    </div>
+
+    <div class="block">
+      <div class="marg"><b>Cobertura</b><span>■■■ fuerte</span><span>■□□ débil</span></div>
+      <div class="body wide">
+        <p style="max-width:var(--measure)">
+          La respuesta corta es <strong>privacidad y gobernanza de datos</strong>. La respuesta útil
+          es que, en Colombia, esa dimensión funciona como <strong>puerta de entrada a casi todas las
+          demás</strong>, porque la SIC es hoy el regulador con dientes más afilados sobre IA en el
+          país.
+        </p>
+        <div class="scroll">
+          <table>
+            <thead>
+              <tr><th>Dimensión</th><th>Cobertura</th><th>Vía normativa concreta</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="t-name">Privacidad y datos</td>
+                <td><span class="meter" role="img" aria-label="Cobertura fuerte, 3 de 3"><i></i><i></i><i></i></span></td>
+                <td>Toda la ley: principios de finalidad, libertad y acceso restringido; autorización previa; Registro Nacional de Bases de Datos (art. 20)</td>
+              </tr>
+              <tr>
+                <td class="t-name">Equidad y no discriminación</td>
+                <td><span class="meter" role="img" aria-label="Cobertura media, 2 de 3"><i></i><i></i><i class="off"></i></span></td>
+                <td>Art. 5 (datos sensibles definidos por su potencial discriminatorio); principio de veracidad que prohíbe datos parciales o que induzcan a error; criterio de razonabilidad y mención expresa a «sesgos humanos» en la Circular 002</td>
+              </tr>
+              <tr>
+                <td class="t-name">Transparencia</td>
+                <td><span class="meter" role="img" aria-label="Cobertura media, 2 de 3"><i></i><i></i><i class="off"></i></span></td>
+                <td>Principio de transparencia (art. 4e), deber de informar la finalidad (art. 12), instrucción VII. <strong>Obliga a explicar qué datos se usan y para qué, no la lógica interna del modelo</strong></td>
+              </tr>
+              <tr>
+                <td class="t-name">Seguridad y robustez</td>
+                <td><span class="meter" role="img" aria-label="Cobertura media, 2 de 3"><i></i><i></i><i class="off"></i></span></td>
+                <td>Principio de seguridad (art. 4g), instrucción VIII, exigencia de auditabilidad</td>
+              </tr>
+              <tr>
+                <td class="t-name">Rendición de cuentas</td>
+                <td><span class="meter" role="img" aria-label="Cobertura fuerte, 3 de 3"><i></i><i></i><i></i></span></td>
+                <td>Responsabilidad demostrada (Decreto 1074); estudio de impacto documentado; régimen sancionatorio del art. 23 con autoridad activa</td>
+              </tr>
+              <tr class="gap-row">
+                <td class="t-name">Supervisión humana</td>
+                <td><span class="meter" role="img" aria-label="Cobertura débil, 1 de 3"><i></i><i class="off"></i><i class="off"></i></span></td>
+                <td>Existen derechos de revocación, supresión, consulta y reclamo, pero <strong>no un derecho explícito a no ser objeto de decisiones exclusivamente automatizadas</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="marg"><b>Brecha</b><span>GDPR art. 22</span></div>
+      <div class="body">
+        <h3>La brecha más importante</h3>
+        <p>
+          El Reglamento europeo reconoce en su artículo 22 un derecho a <strong>no ser objeto de
+          decisiones basadas únicamente en tratamiento automatizado</strong> que produzcan efectos
+          jurídicos o significativos, junto con un derecho a obtener <strong>intervención
+          humana</strong>.
+        </p>
+
+        <div class="gap-note">
+          <span class="eyebrow">Ausencia</span>
+          <p>
+            <strong>La Ley 1581 de 2012 no consagra un derecho equivalente al artículo 22 del GDPR.</strong>
+            El artículo 8 enumera tus derechos y todos giran alrededor del <em>dato</em>: conocerlo,
+            rectificarlo, revocar la autorización, exigir supresión. Ninguno gira alrededor de la
+            <em>decisión</em> que se tomó con ese dato.
+          </p>
+          <p>
+            En la práctica: si un banco colombiano te niega un crédito y el modelo lo decidió sin que
+            ningún humano mirara tu caso, puedes exigir que corrijan un dato equivocado — pero no
+            puedes exigir, invocando esta ley, que <strong>una persona revise la decisión</strong>.
+          </p>
+        </div>
+
+        <p>La ley fue escrita cuando el aprendizaje automático a escala no era un problema regulatorio. Hoy ese vacío se cubre por vías indirectas:</p>
+        <ul>
+          <li>La ponderación de cuatro criterios de la Circular 002.</li>
+          <li>El principio de precaución de esa misma circular.</li>
+          <li>La acción de tutela y la jurisprudencia constitucional (T-323 de 2024).</li>
+          <li>El principio de veracidad, si la decisión se basó en datos incompletos o erróneos.</li>
+        </ul>
+        <p>
+          Son rodeos, no un derecho subjetivo directo. Es una de las razones de fondo del proyecto de
+          modernización del régimen que impulsa la SIC.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 4 ===================== -->
+  <section id="casos">
+    <div class="sec-head">
+      <div class="sec-num">Sección 04</div>
+      <h2>Siete casos de aplicación</h2>
+    </div>
+
+    <div class="block">
+      <div class="marg"><b>Casos</b><span>Sin orden jerárquico</span></div>
+      <div class="body wide">
+        <div class="cases">
+
+          <article class="case">
+            <span class="tag">Crédito</span>
+            <h4>Scoring crediticio con machine learning</h4>
+            <p class="scen">Una fintech entrena un modelo para aprobar microcréditos usando historial transaccional, ubicación GPS y comportamiento en la app.</p>
+            <ul>
+              <li><strong>Autorización</strong> con finalidad «evaluación de riesgo crediticio» — no basta un «acepto términos» genérico.</li>
+              <li>Si la ubicación infiere el barrio y éste correlaciona con origen étnico, se creó un <em>proxy</em> de dato sensible.</li>
+              <li>Estudio de impacto obligatorio: afecta el acceso al crédito.</li>
+              <li>Concurre la <strong>Ley 1266 de 2008</strong>, habeas data financiero.</li>
+            </ul>
+            <p class="verdict-line">Riesgo: multa, orden de suspender el modelo y rehacer la autorización de toda la base.</p>
+          </article>
+
+          <article class="case">
+            <span class="tag">Empleo</span>
+            <h4>Filtrado automatizado de hojas de vida</h4>
+            <p class="scen">Una empresa usa IA para preseleccionar candidatos entre 5.000 hojas de vida.</p>
+            <ul>
+              <li>Las hojas de vida contienen <strong>datos sensibles latentes</strong>: foto → origen racial; afiliaciones → sindicato o religión.</li>
+              <li>Debe informarse la finalidad y la existencia del componente automatizado.</li>
+              <li>La SIC ha señalado que automatizar contratación <strong>es</strong> tratamiento sujeto al régimen completo.</li>
+              <li><strong>Necesidad:</strong> ¿es indispensable la foto? Si no lo es, incluirla falla el test.</li>
+            </ul>
+            <p class="verdict-line">Punto crítico: el sesgo entra por los datos, no por el código.</p>
+          </article>
+
+          <article class="case">
+            <span class="tag">Datos de entrenamiento</span>
+            <h4>Web scraping para entrenar un modelo</h4>
+            <p class="scen">Un equipo raspa perfiles públicos de redes sociales colombianas para entrenar un modelo de lenguaje.</p>
+            <ul>
+              <li>Es el caso que la <strong>instrucción IX</strong> ataca de frente.</li>
+              <li>Que un perfil sea visible no lo convierte en dato público.</li>
+              <li>Sin autorización previa, expresa e informada, quien recolecta datos privados, semiprivados o sensibles <strong>no está legitimado</strong>.</li>
+              <li>Precedente: Resolución SIC 71406 del 15 de noviembre de 2023, órdenes a LinkedIn.</li>
+            </ul>
+            <p class="verdict-line">«Lo saqué de internet» no es una base de legitimación en Colombia.</p>
+          </article>
+
+          <article class="case">
+            <span class="tag">Biometría</span>
+            <h4>Reconocimiento facial en espacios comerciales</h4>
+            <p class="scen">Un centro comercial instala cámaras con reconocimiento facial para medir aforo y detectar personas señaladas por hurto.</p>
+            <ul>
+              <li>Los datos biométricos son <strong>sensibles</strong>. Regla general: prohibido tratarlos.</li>
+              <li>Requiere autorización <strong>explícita</strong> — imposible en un espacio abierto donde nadie consintió antes de entrar.</li>
+              <li>Si el objetivo es contar personas, existen sensores anónimos igual de eficaces: falla el criterio de <strong>necesidad</strong>.</li>
+            </ul>
+            <p class="verdict-line">Sanción potencial: cierre inmediato y definitivo, por involucrar datos sensibles.</p>
+          </article>
+
+          <article class="case">
+            <span class="tag">Nube · LLM</span>
+            <h4>Usar un LLM comercial con datos de clientes</h4>
+            <p class="scen">Servicio al cliente pega conversaciones reales en una herramienta de IA generativa de un proveedor extranjero para generar resúmenes.</p>
+            <ul>
+              <li>El proveedor es <strong>Encargado del Tratamiento</strong>: se requiere contrato de transmisión.</li>
+              <li>Aplica el <strong>art. 26</strong>: prohibición de transferir a países sin nivel adecuado de protección.</li>
+              <li>Si el proveedor reentrena con esos datos, hay <strong>cambio de finalidad no autorizado</strong>.</li>
+              <li>La confidencialidad sigue vinculando al empleado que pegó la conversación.</li>
+            </ul>
+            <p class="verdict-line">El error de cumplimiento más común y menos percibido hoy en Colombia.</p>
+          </article>
+
+          <article class="case">
+            <span class="tag">Voz sintética</span>
+            <h4>Contact center con llamadas generadas por IA</h4>
+            <p class="scen">Una empresa usa IA para generar llamadas automáticas con voz sintética a clientes.</p>
+            <ul>
+              <li>La SIC atendió exactamente esta consulta en el <strong>Concepto 25-167843</strong>, del 27 de junio de 2025.</li>
+              <li>Exige transparencia en el uso de IA, privacidad y seguridad, responsabilidad en la implementación.</li>
+              <li>Protección especial de niños, niñas y adolescentes.</li>
+              <li>Remite al CONPES 4144 de 2025 y a la Circular 002 de 2024.</li>
+            </ul>
+            <p class="verdict-line">Caso con pronunciamiento expreso de la autoridad, no hipotético.</p>
+          </article>
+
+          <article class="case">
+            <span class="tag">Educación</span>
+            <h4>Analítica de deserción estudiantil</h4>
+            <p class="scen">Una universidad predice qué estudiantes están en riesgo de desertar, cruzando notas, asistencia, uso del aula virtual y datos socioeconómicos.</p>
+            <ul>
+              <li>Datos socioeconómicos y de salud mental son sensibles o cercanos a serlo.</li>
+              <li>Estudiantes menores: protección reforzada del <strong>art. 7</strong>.</li>
+              <li>Si el modelo termina usándose para admisión o sanción, hay <strong>desviación de finalidad</strong>.</li>
+              <li>El estudiante tiene derecho a saber que existe un puntaje de riesgo sobre él y a acceder gratis.</li>
+            </ul>
+            <p class="verdict-line">Estudio de impacto obligatorio por el riesgo de estigmatización.</p>
+          </article>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 5 ===================== -->
+  <section id="checklist">
+    <div class="sec-head">
+      <div class="sec-num">Sección 05</div>
+      <h2>Verificación previa a producción</h2>
+    </div>
+
+    <div class="block">
+      <div class="marg"><b>12 puntos</b><span>Estado local, no se envía</span></div>
+      <div class="body">
+        <div class="progress">
+          <span>Cumplimiento verificado</span>
+          <span class="progress-count" id="count">0 / 12</span>
+        </div>
+        <div class="bar"><i id="bar"></i></div>
+
+        <div class="checklist" id="checklist">
+          <label class="check"><input type="checkbox" data-check><span>¿Identifiqué si el sistema trata datos personales? (Casi siempre la respuesta es sí.)</span></label>
+          <label class="check"><input type="checkbox" data-check><span>¿Tengo autorización previa, expresa e informada con la finalidad de IA descrita explícitamente?</span></label>
+          <label class="check"><input type="checkbox" data-check><span>¿Hay datos sensibles o <em>proxies</em> de datos sensibles en el conjunto de entrenamiento?</span></label>
+          <label class="check"><input type="checkbox" data-check><span>¿Documenté el test de idoneidad, necesidad, razonabilidad y proporcionalidad?</span></label>
+          <label class="check"><input type="checkbox" data-check><span>¿Hice y documenté un estudio de impacto de privacidad?</span></label>
+          <label class="check"><input type="checkbox" data-check><span>¿Puedo <strong>demostrar</strong> el cumplimiento ante la SIC si me lo piden mañana?</span></label>
+          <label class="check"><input type="checkbox" data-check><span>¿Mis datos de entrenamiento son veraces, completos, exactos y actualizados?</span></label>
+          <label class="check"><input type="checkbox" data-check><span>Si usé datos de internet, ¿tengo autorización de los Titulares? Ser «público» no basta.</span></label>
+          <label class="check"><input type="checkbox" data-check><span>¿Puede un Titular consultar, rectificar, revocar y solicitar supresión — y eso se refleja en el modelo?</span></label>
+          <label class="check"><input type="checkbox" data-check><span>¿Registré la base de datos en el Registro Nacional de Bases de Datos cuando corresponde?</span></label>
+          <label class="check"><input type="checkbox" data-check><span>¿Mis medidas de seguridad son auditables por la autoridad?</span></label>
+          <label class="check"><input type="checkbox" data-check><span>¿Hay transferencia internacional de datos? ¿Está cubierta por el art. 26?</span></label>
+        </div>
+
+        <p style="margin-top:1.25rem"><button class="reset" id="reset" type="button">Reiniciar verificación</button></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 6 ===================== -->
+  <section id="marco">
+    <div class="sec-head">
+      <div class="sec-num">Sección 06</div>
+      <h2>Marco normativo completo</h2>
+    </div>
+
+    <div class="block">
+      <div class="marg"><b>Contexto</b><span>Normas concurrentes</span></div>
+      <div class="body wide">
+        <div class="scroll">
+          <table>
+            <thead><tr><th>Norma</th><th>Contenido</th></tr></thead>
+            <tbody>
+              <tr><td class="t-name">Constitución, art. 15</td><td>Derecho fundamental al habeas data, intimidad y buen nombre</td></tr>
+              <tr><td class="t-name">Ley 1266 de 2008</td><td>Habeas data financiero, crediticio y comercial — régimen especial y anterior</td></tr>
+              <tr><td class="t-name">Ley 1581 de 2012</td><td>Régimen general de protección de datos personales</td></tr>
+              <tr><td class="t-name">Decreto 1377 de 2013</td><td>Reglamenta parcialmente la Ley 1581: autorización, políticas de tratamiento, transferencias</td></tr>
+              <tr><td class="t-name">Decreto 1074 de 2015</td><td>Decreto Único Reglamentario del sector; compila lo anterior. Su art. 2.2.2.25.6.1 consagra la responsabilidad demostrada</td></tr>
+              <tr><td class="t-name">Decreto 4886 de 2011</td><td>Estructura y funciones de la SIC (modificado por el Decreto 092 de 2022)</td></tr>
+              <tr><td class="t-name">CONPES 3975</td><td>Política Nacional para la Transformación Digital e Inteligencia Artificial</td></tr>
+              <tr><td class="t-name">CONPES 4144 de 2025</td><td>Política nacional de inteligencia artificial</td></tr>
+              <tr><td class="t-name">Circular Externa 002 de 2024</td><td>Lineamientos sobre tratamiento de datos personales en sistemas de IA</td></tr>
+              <tr><td class="t-name">Sentencia C-748 de 2011</td><td>Revisión de constitucionalidad del proyecto que se convirtió en la Ley 1581</td></tr>
+              <tr><td class="t-name">Sentencia T-323 de 2024</td><td>Reafirma que cualquier sistema de IA debe cumplir el régimen de protección de datos</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 7 ===================== -->
+  <section id="cierre">
+    <div class="sec-head">
+      <div class="sec-num">Sección 07</div>
+      <h2>Tres ideas para llevarse</h2>
+    </div>
+
+    <div class="block">
+      <div class="marg"><b>Conclusión</b></div>
+      <div class="body">
+        <h3>Colombia ya regula la IA, aunque no tenga una «ley de IA»</h3>
+        <p>
+          La Ley 1581 es tecnológicamente neutra y por eso alcanza a los sistemas de IA sin necesidad
+          de reforma. La Circular 002 de 2024 lo hizo explícito y operativo.
+        </p>
+
+        <h3 style="margin-top:1.75rem">La dimensión tocada es privacidad, pero opera como palanca</h3>
+        <p>
+          A través de los datos sensibles llega a la equidad; a través del principio de seguridad
+          llega a la robustez; a través de la responsabilidad demostrada llega a la rendición de
+          cuentas. En la práctica, <strong>la SIC es hoy el regulador de IA más operativo del
+          país</strong>.
+        </p>
+
+        <h3 style="margin-top:1.75rem">La brecha real está en la supervisión humana</h3>
+        <p>
+          No existe un derecho explícito a no ser objeto de decisiones exclusivamente automatizadas.
+          Es la principal razón por la que se discute una modernización del régimen.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== refs ===================== -->
+  <section id="refs">
+    <div class="sec-head">
+      <div class="sec-num">Fuentes</div>
+      <h2>Referencias</h2>
+    </div>
+
+    <div class="block">
+      <div class="marg"><b>Primarias</b><span>Normativa y jurisprudencia</span></div>
+      <div class="body wide">
+        <div class="refs">
+          <div class="ref">
+            <div class="ref-n">01</div>
+            <div>
+              <strong>Ley Estatutaria 1581 de 2012</strong> — «Por la cual se dictan disposiciones generales para la protección de datos personales». SUIN-Juriscol, Ministerio de Justicia.
+              <a href="https://www.suin-juriscol.gov.co/viewDocument.asp?ruta=Leyes/1684507">suin-juriscol.gov.co/viewDocument.asp?ruta=Leyes/1684507</a>
+            </div>
+          </div>
+          <div class="ref">
+            <div class="ref-n">02</div>
+            <div>
+              <strong>Ley 1581 de 2012</strong> — Gestor Normativo, Departamento Administrativo de la Función Pública.
+              <a href="https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=49981">funcionpublica.gov.co/eva/gestornormativo/norma.php?i=49981</a>
+            </div>
+          </div>
+          <div class="ref">
+            <div class="ref-n">03</div>
+            <div>
+              <strong>SIC. Circular Externa No. 002 del 21 de agosto de 2024</strong> — «Lineamientos sobre el Tratamiento de Datos personales en Sistemas de Inteligencia Artificial». Firmada por Cielo Elainne Rusinque Urrego, Superintendente de Industria y Comercio.
+              <a href="https://sedeelectronica.sic.gov.co/sites/default/files/normativa/Circular%20Externa%20No.%20002%20del%2021%20de%20agosto%20de%202024.pdf">sedeelectronica.sic.gov.co · PDF oficial</a>
+            </div>
+          </div>
+          <div class="ref">
+            <div class="ref-n">04</div>
+            <div>
+              <strong>SIC. Concepto 25-167843</strong>, publicado el 27 de junio de 2025 — «El uso de la inteligencia artificial en actividades comerciales debe respetar el habeas data».
+              <a href="https://sedeelectronica.sic.gov.co/publicaciones/boletin-juridico/concepto/el-uso-de-la-inteligencia-artificial-en-actividades-comerciales-debe-respetar-el-habeas-data">sedeelectronica.sic.gov.co · Boletín jurídico</a>
+            </div>
+          </div>
+          <div class="ref">
+            <div class="ref-n">05</div>
+            <div>
+              <strong>SIC. «ABC del Proyecto de Ley de Protección de Datos Personales en Colombia»</strong> — sobre la propuesta de modernización del régimen.
+              <a href="https://sedeelectronica.sic.gov.co/noticias/abc-del-proyecto-de-ley-de-proteccion-de-datos-personales-en-colombia">sedeelectronica.sic.gov.co · Noticias</a>
+            </div>
+          </div>
+          <div class="ref">
+            <div class="ref-n">06</div>
+            <div>
+              <strong>SIC. Resolución No. 71406 del 15 de noviembre de 2023</strong> — órdenes administrativas a LinkedIn. Citada en la nota al pie 13 de la Circular Externa 002 de 2024.
+            </div>
+          </div>
+          <div class="ref">
+            <div class="ref-n">07</div>
+            <div>
+              <strong>Corte Constitucional. Sentencia C-748 de 2011</strong> — control de constitucionalidad del proyecto que se convirtió en la Ley 1581 de 2012.
+              <a href="https://www.corteconstitucional.gov.co/relatoria/2011/C-748-11.htm">corteconstitucional.gov.co/relatoria/2011/C-748-11.htm</a>
+            </div>
+          </div>
+          <div class="ref">
+            <div class="ref-n">08</div>
+            <div>
+              <strong>Corte Constitucional. Sentencia C-1011 de 2008</strong> — naturaleza de las facultades de vigilancia de la SIC.
+              <a href="https://www.corteconstitucional.gov.co/relatoria/2008/C-1011-08.htm">corteconstitucional.gov.co/relatoria/2008/C-1011-08.htm</a>
+            </div>
+          </div>
+          <div class="ref">
+            <div class="ref-n">09</div>
+            <div>
+              <strong>Corte Constitucional. Sentencia T-323 de 2024</strong> — neutralidad tecnológica del régimen de datos y su aplicación a sistemas de IA.
+              <a href="https://www.corteconstitucional.gov.co/relatoria/2024/T-323-24.htm">corteconstitucional.gov.co/relatoria/2024/T-323-24.htm</a>
+            </div>
+          </div>
+          <div class="ref">
+            <div class="ref-n">10</div>
+            <div>
+              <strong>DNP. Documento CONPES 3975</strong> — Política Nacional para la Transformación Digital e Inteligencia Artificial. Fuente de la definición oficial de IA citada por la Circular 002.
+              <a href="https://www.dnp.gov.co/">dnp.gov.co</a>
+            </div>
+          </div>
+          <div class="ref">
+            <div class="ref-n">11</div>
+            <div>
+              <strong>DNP. Documento CONPES 4144 de 2025</strong> — política nacional de inteligencia artificial. Citado en el Concepto SIC 25-167843.
+            </div>
+          </div>
+          <div class="ref">
+            <div class="ref-n">12</div>
+            <div>
+              <strong>OCDE (2024).</strong> <em>Explanatory Memorandum on the Updated OECD Definition of an AI System.</em> Definición de «sistema de IA» adoptada por la Circular 002 de 2024.
+            </div>
+          </div>
+          <div class="ref">
+            <div class="ref-n">13</div>
+            <div>
+              <strong>Dwork, C. &amp; Roth, A. (2014).</strong> <em>The Algorithmic Foundations of Differential Privacy.</em> Foundations and Trends in Theoretical Computer Science. Citado por la propia SIC.
+              <a href="https://www.cis.upenn.edu/~aaroth/Papers/privacybook.pdf">cis.upenn.edu/~aaroth/Papers/privacybook.pdf</a>
+            </div>
+          </div>
+          <div class="ref">
+            <div class="ref-n">14</div>
+            <div>
+              <strong>Sierra Cadena, G. (2024).</strong> <em>Implementación de la Inteligencia Artificial en las Altas Cortes de Colombia: los casos de la Corte Constitucional y el Consejo de Estado.</em> Revista Eurolatinoamericana de Derecho Administrativo, vol. 11, n.º 1, e253.
+            </div>
+          </div>
+        </div>
+
+        <div class="method">
+          <span class="eyebrow">Nota metodológica</span>
+          <p>
+            El contenido de la Circular Externa 002 de 2024 se extrajo directamente del PDF oficial
+            publicado por la SIC, incluyendo sus instrucciones I a X y sus notas al pie; las citas
+            textuales provienen de esa fuente. El Concepto 25-167843 se consultó en el portal de la
+            Superintendencia.
+          </p>
+          <p>
+            SUIN-Juriscol y Función Pública fueron identificados como las fuentes oficiales del texto
+            de la ley, pero no pudieron descargarse durante la investigación por problemas de
+            certificado TLS de esos servidores; los enlaces se incluyen para consulta directa. Las
+            sentencias de la Corte Constitucional se citan a partir de las transcripciones textuales
+            contenidas en la propia Circular 002; los enlaces a la relatoría siguen el formato
+            estándar del portal de la Corte y conviene verificarlos.
+          </p>
+          <p style="margin-bottom:0">
+            El estado de trámite del proyecto de ley de modernización del régimen de datos personales
+            debe verificarse al momento de la lectura, ya que puede haber cambiado.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>Investigación en gobernanza de IA · Ley 1581 de 2012</span>
+    <span>Documento elaborado el 3 de agosto de 2026</span>
+  </footer>
+
+</div>
+
+<script>
+  (function () {
+    // --- Test de ponderación (Circular 002, instrucción I) ---
+    var crits = Array.prototype.slice.call(document.querySelectorAll('[data-crit]'));
+    var verdict = document.getElementById('verdict');
+
+    function renderVerdict() {
+      var n = crits.filter(function (c) { return c.checked; }).length;
+      var pass = n === crits.length;
+      verdict.classList.toggle('pass', pass);
+      verdict.textContent = pass
+        ? n + ' / 4 — Ponderación superada. Documenta el razonamiento: la responsabilidad demostrada exige poder probarlo.'
+        : n + ' / 4 — La ponderación no se supera. Los cuatro criterios son acumulativos, no alternativos.';
+    }
+
+    crits.forEach(function (c) { c.addEventListener('change', renderVerdict); });
+    renderVerdict();
+
+    // --- Checklist ---
+    var checks = Array.prototype.slice.call(document.querySelectorAll('[data-check]'));
+    var count = document.getElementById('count');
+    var bar = document.getElementById('bar');
+
+    function renderChecks() {
+      var n = checks.filter(function (c) { return c.checked; }).length;
+      count.textContent = n + ' / ' + checks.length;
+      bar.style.width = (n / checks.length * 100) + '%';
+    }
+
+    checks.forEach(function (c) { c.addEventListener('change', renderChecks); });
+
+    document.getElementById('reset').addEventListener('click', function () {
+      checks.forEach(function (c) { c.checked = false; });
+      renderChecks();
+    });
+
+    renderChecks();
+
+    // --- TOC scroll spy ---
+    var links = Array.prototype.slice.call(document.querySelectorAll('.toc a'));
+    var sections = links.map(function (a) { return document.querySelector(a.getAttribute('href')); });
+
+    if ('IntersectionObserver' in window) {
+      var obs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (!e.isIntersecting) return;
+          var i = sections.indexOf(e.target);
+          if (i < 0) return;
+          links.forEach(function (l) { l.classList.remove('on'); });
+          links[i].classList.add('on');
+        });
+      }, { rootMargin: '-10% 0px -75% 0px' });
+
+      sections.forEach(function (s) { if (s) obs.observe(s); });
+    }
+  })();
+</script>
